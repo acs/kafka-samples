@@ -14,6 +14,8 @@ KAFKA_TOPIC_SLOW = "topic_slow"
 RETENTION_KEY = "retention.ms"
 RETENTION_POLICY_KEY = "cleanup.policy"
 
+# TODO: Explore https://aiokafka.readthedocs.io/en/stable/
+
 
 def create_topic(admin_client, new_topic):
     # Let's create a topic with retention to check how to collect the data
@@ -81,7 +83,6 @@ if __name__ == '__main__':
 
     print("%s for %s: %s" % (RETENTION_POLICY_KEY, KAFKA_TOPIC_SLOW, config_slow[RETENTION_POLICY_KEY]))
     print("%s for %s: %s" % (RETENTION_POLICY_KEY, KAFKA_TOPIC_FAST, config_fast[RETENTION_POLICY_KEY]))
-
 
     topics = consumer.topics()
     for topic in topics:
